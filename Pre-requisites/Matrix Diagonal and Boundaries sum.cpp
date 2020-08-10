@@ -35,7 +35,8 @@ The first-diagonal elements are 1, 5 and 9.
 
 The second-diagonal elements are 3, 5 and 7.
 
-We just need to add all these numbers making sure that no number is added twice. For example, '1' is both a boundary element and a first-diagonal element similarly, '5' contributes to both the diagonals but they won't be added twice.
+We just need to add all these numbers making sure that no number is added twice. For example, '1' is both a boundary element and a first-diagonal element similarly, 
+'5' contributes to both the diagonals but they won't be added twice.
 
 Hence, we add up, [1 + 2 + 3 + 6 + 9 + 8 + 7 + 4 + 5] to give 45 as the output.
 Sample input 2:
