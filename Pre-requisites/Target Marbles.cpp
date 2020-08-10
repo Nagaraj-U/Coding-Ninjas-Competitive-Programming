@@ -6,7 +6,8 @@ player has to arrange the marbles in a specific way such that sum of the values 
 Now, NinjaCoder came to play this game and made an arrangement of marbles. The judges of the game need your help. You have to determine if NinjaCoder has won it or not.
 
 Input Format :
-First line contains number of marbles(N) and target (target_number) that was assigned to NinjaCoder. Second line contains N space separated integers, which represent arrangement of the marbles and value written on that particular marble.
+First line contains number of marbles(N) and target (target_number) that was assigned to NinjaCoder. Second line contains N space separated integers, which represent 
+arrangement of the marbles and value written on that particular marble.
 
 Constraints:
 1<= N <=100
