@@ -36,7 +36,6 @@ Sample Output 2 :
 
 #include <iostream>
 using namespace std;
-
 #include "solution.h"
 
 long long merge(long long arr[],int left,int mid,int right){
@@ -81,7 +80,6 @@ long long merge_sort(long long  arr[],int left,int right){
 
 long long getInversions(long long *arr, int n)
 {
-    //Write your code here
     long long ans = merge_sort(arr,0,n-1);
     return ans;
 }
