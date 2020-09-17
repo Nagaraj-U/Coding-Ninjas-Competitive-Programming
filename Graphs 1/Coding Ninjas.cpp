@@ -20,6 +20,12 @@ Sample Output :
 1
 */
 
+
+    
+#include<bits/stdc++.h>
+using namespace std;
+#define MAXN 102
+
 bool check(char Graph[][MAXN],string str,int n,int m,int i,int j,bool** visited){
     
     if(str.length() == 0){  //string is found ("ODINGNINJA") except 'C'
@@ -111,8 +117,17 @@ bool check(char Graph[][MAXN],string str,int n,int m,int i,int j,bool** visited)
         }
     }
     
-    
-    
+
+int main()
+{
+	int N,M,i;
+	char Graph[MAXN][MAXN];
+	cin>>N>>M;
+	for(i = 0;i < N; i++){
+		cin>>Graph[i];
+	}
+	cout<<solve(Graph,N,M)<<endl;
+}
     
     
     
