@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 int longest_palindrome_substring(string str){
     int n = str.length();
     int maximum = 0;
