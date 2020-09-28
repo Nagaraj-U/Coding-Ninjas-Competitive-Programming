@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 void buildArray(string str,int* arr){
     int left = 0;
     int right = 0;
