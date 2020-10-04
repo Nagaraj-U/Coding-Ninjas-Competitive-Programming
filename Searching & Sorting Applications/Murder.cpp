@@ -28,44 +28,127 @@ Shreya visits the "Momos Market" for only one day. She has 11 INR to spend. She 
 */
 
 
+#include<iostream>
 
-#include<bits/stdc++.h>
 using namespace std;
+typedef long long ll;
+
+ll merge(ll *arr, ll left, ll mid, ll right)
+{
+	ll i=left;
+	ll k=0;
+	ll j=mid;
+	ll sum=0;
+	ll *temp=new ll [right-left+1];
+	while(i<mid&&j<=right)
+	{
+		if(arr[i]<arr[j])
+		{
+			sum+=(arr[i]*(right-j+1));
+			temp[k++]=arr[i++];
+		}
+		else
+		{
+			temp[k++]=arr[j++];
+		}
+	}
+    
+	while(i<mid)
+	{
+		temp[k++]=arr[i++];
+	}
+    
+	while(j<=right)
+	{
+		temp[k++]=arr[j++];
+	}
+    
+	for(ll i=left, k=0; i<=right; i++, k++)
+	{
+		arr[i]=temp[k];
+	}
+    
+	delete[]temp;
+	return sum;
+}
+
+ll merge_sort(ll *arr, ll left, ll right)
+{
+	ll count=0;
+	if(right>left)
+	{
+		ll mid=(right+left)/2;
+		ll left_count=merge_sort(arr, left, mid);
+		ll right_count=merge_sort(arr, mid+1, right);
+		ll merge_count=merge(arr, left, mid+1, right);
+		
+		return left_count+right_count+merge_count;
+	}
+	return count;
+}
+
+ll getAns(ll *arr, ll n)
+{
+	ll ans=merge_sort(arr, 0, n-1);
+	return ans;
+}
+
 int main()
 {
-    int n;
-    cin >> n;
-    int* arr = new int[n];
-    for(int i=0;i<n;i++){
-        cin >> arr[i];
-    }
-    int q;
-    cin >> q;
-    
-    int* q_arr = new int[q];
-    for(int i=0;i<q;i++){
-        cin >> q_arr[i];
-    }
-    //int total_save = 0;
-    for(int i=0;i<q;i++){
-        int buy = 0;
-        int save = q_arr[i];
-        int curr_money = q_arr[i];
-        for(int j=0;j<n;j++){
-            if(arr[j] <= curr_money){
-                curr_money -= arr[j];
-                buy++;
-                save -= arr[j];
-            }else{
-                break;
-            }
-        }
-        //total_save += save;
-        cout << buy << " "<< save << endl;
-    }
-    
-	return 0;
+	ll t;	
+	cin>>t;
+	while(t--)
+	{
+		ll n;
+		cin>>n;
+		ll *arr=new ll [n];
+		for(ll i=0; i<n; i++)
+		{
+			cin>>arr[i];
+		}
+		cout<<getAns(arr, n)<<endl;
+	}
 }
+
+
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     int* arr = new int[n];
+//     for(int i=0;i<n;i++){
+//         cin >> arr[i];
+//     }
+//     int q;
+//     cin >> q;
+    
+//     int* q_arr = new int[q];
+//     for(int i=0;i<q;i++){
+//         cin >> q_arr[i];
+//     }
+//     //int total_save = 0;
+//     for(int i=0;i<q;i++){
+//         int buy = 0;
+//         int save = q_arr[i];
+//         int curr_money = q_arr[i];
+//         for(int j=0;j<n;j++){
+//             if(arr[j] <= curr_money){
+//                 curr_money -= arr[j];
+//                 buy++;
+//                 save -= arr[j];
+//             }else{
+//                 break;
+//             }
+//         }
+//         //total_save += save;
+//         cout << buy << " "<< save << endl;
+//     }
+    
+// 	return 0;
+// }
 
 
 // #include<iostream>
