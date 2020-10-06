@@ -17,6 +17,7 @@ Sample Input:
 1 1 1
 Sample Output:
 6
+
 */
 
 
