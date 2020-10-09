@@ -49,6 +49,7 @@ Sample Output -
 // }
 
 
+
 //sieve of erathostenes
 //time complexity O(nloglogn)
 #include<iostream>
