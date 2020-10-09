@@ -50,7 +50,7 @@ Sample Output -
 
 
 //sieve of erathostenes
-//complexity O(nloglogn)
+//time complexity O(nloglogn)
 #include<iostream>
 using namespace std;
 #include<math.h>
