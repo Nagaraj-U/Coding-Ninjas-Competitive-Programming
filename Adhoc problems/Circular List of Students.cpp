@@ -20,6 +20,7 @@ Sample Input:
 Sample Output:
 5
 1
+
 Explanation:
 First, list will start at 3. 3 -> 4 -> 5. Hence, 5 will be at third position.
 Second, list will start at 6. 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 0 -> 1. Hence, 1 will be at 8th position.
