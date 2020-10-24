@@ -1,4 +1,26 @@
 /*
+
+Intution: 
+There exist integral roots x,y for equation ax+by = c if c = gcd(a,b) 
+ie 
+gcd(a,b) devides a and b
+gcd(a,b) also devides a+b
+then gcd(a,b) devides ax+by for some integers x and y
+Extended Euclid algorithm
+ax+by = gcd(a,b) then find x,y
+ax+by = gcd(a,b) = gcd(b,a%b)
+then
+bx1 + (a%b)y1 = gcd(b,a%b) = gcd(a,b)    rewriting
+bx1 + (a - b*floor(a/b))y1 = ax+by
+comparing coeff of a and b
+b(x1 - floor(a/b)) + ay1 = ax+by
+x = y1
+y = (x1 - y1*floor(a/b))
+
+
+
+
+
 Multiplicative modulo inverse : (a*b) mod m = 1
 5*b mod 17 = 1 find b
 ans = 5*7 mod 17 = 1 hence multiplicative modulo inverse is 7
