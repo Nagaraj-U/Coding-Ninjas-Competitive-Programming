@@ -26,3 +26,60 @@ Sample Output
 8
 1
 */
+
+#include<iostream>
+using namespace std;
+#define MAX 1000001
+
+void makesieve(int* arr){
+    for(int i=0;i<MAX;i++){
+        arr[i] = 0;
+    }
+    
+    for(int i=2;i<MAX;i++){
+        if(arr[i] == 0){
+            for(int j=1;i*j<MAX;j++){ //every time increasing factor by 1
+                arr[j*i] += 1;
+            }
+        }
+    }
+    return;
+}
+
+int main(){
+	// Write your code here
+    int t;
+    cin >> t;
+    int* sieve = new int[MAX];
+    makesieve(sieve);  
+    
+    int** table = new int*[11];//stores count of each value of sieve (example what is count of number 8 with n=3)
+    for(int i=0;i<11;i++){
+        table[i] = new int[MAX];
+    }
+    for(int i=0;i<11;i++){
+        table[i][0] = 0;
+        table[i][1] = 0;
+        for(int j=2;j<MAX;j++){
+            if(sieve[j] == i){
+                table[i][j] = table[i][j-1]+1;//storing previous + present count (count upto that index)
+            }else{
+                table[i][j] = table[i][j-1];
+            }
+        }
+    }
+    while(t--){
+        int a,b,n;
+        cin >> a >> b >> n;
+        
+        //special case
+        if(a==1 && n==0){ //given
+            cout << 1 << endl;
+            continue;
+        }
+        int ans = table[n][b] - table[n][a-1];
+        cout << ans << endl;
+        
+    }
+	return 0;
+}
