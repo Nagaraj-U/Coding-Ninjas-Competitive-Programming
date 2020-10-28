@@ -1,6 +1,7 @@
 /*
 
 Card Game
+
 Send Feedback
 Vova again tries to play some computer card game.
 The rules of deck creation in this game are simple. Vova is given an existing deck of n cards and a magic number k. The order of the cards in the deck is fixed. Each card has a number written on it; number ai is written on the i-th card in the deck.
