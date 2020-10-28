@@ -1,6 +1,6 @@
 /*
 LCM SUM
-Send Feedback
+
 Given n, calculate and print the sum :
 LCM(1,n) + LCM(2,n) + .. + LCM(n,n)
 where LCM(i,n) denotes the Least Common Multiple of the integers i and n.
