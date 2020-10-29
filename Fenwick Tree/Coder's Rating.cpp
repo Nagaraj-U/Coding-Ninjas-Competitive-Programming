@@ -30,3 +30,150 @@ Sample Output
 1
 
 */
+
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+struct coder{
+    	int x;
+    	int y;
+    	int index;
+};
+
+bool compare(coder c1,coder c2){
+    if(c1.x == c2.x){
+        return c1.y < c2.y;
+    }
+    return c1.x < c2.x;
+}
+
+void update(int y,int* BIT){
+    for(;y<=10000;y +=(y&(-y))){
+        BIT[y]++;
+    }
+    return;
+}
+
+int query(int y,int* BIT){
+    int count = 0;
+    for(;y>0;y-=(y&(-y))){
+        count += BIT[y];
+    }
+    return count;
+}
+
+int main()
+{	
+    
+    ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+    int n;
+    cin >> n;
+    coder* arr = new coder[n];
+    for(int i=0;i<n;i++){
+        cin >> arr[i].x;
+        cin >> arr[i].y;
+        arr[i].index = i;
+    }
+    sort(arr,arr+n,compare);
+    
+    int* ans = new int[n];
+    int* BIT = new int[100001];
+    
+    for(int i=0;i<n;){
+        
+        int endIndex = i;
+        while(endIndex < n && arr[i].x == arr[endIndex].x && arr[i].y == arr[endIndex].y){
+            endIndex++;
+        }
+        //query
+        for(int j=i;j<endIndex;j++){
+            ans[arr[j].index] = query(arr[j].y,BIT);
+        }
+        
+        //update
+        for(int j=i;j<endIndex;j++){
+            update(arr[j].y,BIT);
+        }
+        
+        i = endIndex;   
+    }
+    
+    for(int i=0;i<n;i++){
+        cout << ans[i] << endl;
+    }
+    
+    return 0;
+}
+
+
+
+// #include <iostream>
+// #include <algorithm>
+// using namespace std;
+// class coder
+// {
+// public:
+//     int x, y, index;
+// };
+// bool sorter(coder c1, coder c2)
+// {
+//     if (c1.x == c2.x)
+//     {
+//         return c1.y < c2.y;
+//     }
+//     return c1.x<c2.x;
+// }
+// void update(int y, int *bit)
+// {
+//     for (; y <= 100000; y += y & (-y))
+//     {
+//         bit[y]++;
+//     }
+// }
+// int query(int y, int *bit)
+// {
+//     int count = 0;
+//     for (; y > 0; y -= y & (-y))
+//     {
+//         count += bit[y];
+//     }
+//     return count;
+// }
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     coder *arr = new coder[n];
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i].x >> arr[i].y;
+//         arr[i].index = i;
+//     }
+//     sort(arr, arr + n, sorter);
+//     int *bit = new int[100001];
+//     int *ans = new int[n];
+//     for (int i = 0; i < n;)
+//     {
+//         int endindex = i;
+//         while (endindex < n && arr[i].x == arr[endindex].x && arr[i].y == arr[endindex].y)
+//         {
+//             endindex++;
+//         }
+//         for(int j=i; j<endindex; j++)
+//         {
+//             ans[arr[j].index] = query(arr[j].y, bit);
+//         }
+//         for(int j=i; j<endindex; j++)
+//         {
+//             update(arr[j].y, bit);
+//         }
+//         i=endindex;
+//     }
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << ans[i] << endl;
+//     }
+//     return 0;
+// }
