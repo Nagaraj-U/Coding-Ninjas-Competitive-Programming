@@ -1,4 +1,5 @@
 /*
+
 Advanced GCD
 Send Feedback
 Varun explained its friend Sanchit the algorithm of Euclides to calculate the GCD of two numbers. Then Sanchit implements the algorithm
