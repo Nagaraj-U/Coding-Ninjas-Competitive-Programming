@@ -2,7 +2,8 @@
 Ghost Type
 Send Feedback
 Gengar has got an integer N. Now using his ghostly powers, he can create the permutation from 1 to N of this given number.
-Since, he's a special kind of Poke'mon, so he thinks he deserves special permutations. He wants to find the total number of special permutations of length N, consisting of the integers from 1 to N
+Since, he's a special kind of Poke'mon, so he thinks he deserves special permutations. He wants to find the total number of special permutations of length N, consisting
+of the integers from 1 to N
 .
 
 A permutation is called special if it satisfies following condition:
