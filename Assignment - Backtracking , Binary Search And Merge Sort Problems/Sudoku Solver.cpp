@@ -6,6 +6,7 @@ Input Format :
 9 Lines where ith line contains ith row elements separated by space
 Output Format :
  true or false
+ 
 Sample Input :
 9 0 0 0 2 0 7 5 0 
 6 0 0 0 5 0 0 4 0 
