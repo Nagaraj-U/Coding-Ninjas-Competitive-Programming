@@ -4,6 +4,7 @@
 using namespace std;
 #define MIN -9999;
 
+
 int kadane(int arr[],int n){
     int current_sum = 0;
     int best_sum = MIN;
