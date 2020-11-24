@@ -2,6 +2,7 @@
 using namespace std;
 typedef long long ll;
 
+
 ll maxproduct(int arr[],int n){
     ll max_ending_here = 1;
     ll min_ending_here = 1;
