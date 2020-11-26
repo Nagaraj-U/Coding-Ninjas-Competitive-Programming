@@ -10,13 +10,13 @@ ll maxproduct(int arr[],int n){
     for(int i=0;i<n;i++){
         if(arr[i] > 0){
             max_ending_here = max_ending_here*arr[i];
-            min_ending_here = min(min_ending_here,min_ending_here*arr[i]);
+            min_ending_here = min(1,min_ending_here*arr[i]);//if no prev entries in array are -ve then min_end_here = 1 so to avoid arr[i]*min_ending_here becoming more +ve we take max with 1
         }else if(arr[i] == 0){
             max_ending_here = 1;
             min_ending_here = 1;
         }else{
             int temp = max_ending_here;
-            max_ending_here = max(max_ending_here,min_ending_here*arr[i]);
+            max_ending_here = max(1,min_ending_here*arr[i]);
             min_ending_here = temp*arr[i];
         }
 
