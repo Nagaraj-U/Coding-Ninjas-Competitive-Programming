@@ -1,4 +1,5 @@
 /*
+
 Our college team is going to the sports fest to play a football match with our coach. There are n players in our team, numbered from 1 to n.
 The coach will know the position of another team hence create a winning strategy. He creates the position of every player in a specific order so that we will win and then he 
 starts swapping two players at a time to form the positions.
