@@ -1,4 +1,5 @@
 /*
+
 Surveyor
 Send Feedback
 A plot has been surveyed. Its boundary consists of segments that form a polygon. Each segment runs either North-South or East-West. Calculate the enclosed area.
