@@ -1,3 +1,5 @@
+//For Disconnected Graph ( It works for connected graph as well )
+
 #include<iostream>
 #include<queue>
 using namespace std;
