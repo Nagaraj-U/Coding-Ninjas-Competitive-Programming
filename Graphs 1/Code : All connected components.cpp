@@ -106,3 +106,88 @@ int main()
     }
   return 0;
 }
+
+
+/*
+
+#include <bits/stdc++.h>
+using namespace std;
+#include <vector>
+
+vector<int> getComponent(int **edges, bool *visited, int n, int start)
+{
+    vector<int> ans;
+    queue<int> pending;
+    pending.push(start);
+    visited[start] = true;
+    while (!pending.empty())
+    {
+        int current = pending.front();
+        pending.pop();
+        ans.push_back(current);
+        for (int i = 0; i < n; i++)
+        {
+            if (!visited[i] && i != start && edges[current][i] == 1)
+            {
+                pending.push(i);
+                visited[i] = true;
+            }
+        }
+    }
+    return ans;
+}
+
+int main()
+{
+    int n, e;
+    cin >> n >> e;
+    int **edges = new int *[n];
+    for (int i = 0; i < n; i++)
+    {
+        edges[i] = new int[n];
+        for (int j = 0; j < n; j++)
+        {
+            edges[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < e; i++)
+    {
+        int start, end;
+        cin >> start >> end;
+        edges[start][end] = 1;
+        edges[end][start] = 1;
+    }
+
+    vector<vector<int>> components;
+    bool *visited = new bool[n];
+    for (int i = 0; i < n; i++)
+    {
+        visited[i] = false;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (!visited[i])
+        {
+            vector<int> component = getComponent(edges, visited, n, i);
+            components.push_back(component);
+        }
+    }
+    if (components.size() != 0)
+    {
+        for (int i = 0; i < components.size(); i++)
+        {
+            sort(components[i].begin(), components[i].end());
+            for (int j = 0; j < components[i].size(); j++)
+            {
+                cout << components[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+    else
+    {
+        cout << "No components returned" << endl;
+    }
+    return 0;
+}
+*/
