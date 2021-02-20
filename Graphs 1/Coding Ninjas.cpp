@@ -205,3 +205,160 @@ int solve(char Graph[][MAXN],int n, int m)
     return 0;
    	
 }
+
+
+
+/*
+#include <bits/stdc++.h>
+using namespace std;
+
+bool check(char **arr, bool **visited, string str, int n, int m, int i, int j)
+{
+    if (str.length() == 0)
+    {
+        return true;
+    }
+
+    if (i < 0 || j < 0 || i >= n || j >= m)
+    {
+        return false;
+    }
+
+    if ((i - 1 >= 0 && j - 1 >= 0) && !visited[i - 1][j - 1] && arr[i - 1][j - 1] == str[0])
+    {
+        visited[i - 1][j - 1] = true;
+        if (check(arr, visited, str.substr(1), n, m, i - 1, j - 1))
+        {
+            return true;
+        }
+        visited[i - 1][j - 1] = false;
+    }
+
+    if ((i - 1 >= 0 && j >= 0) && !visited[i - 1][j] && arr[i - 1][j] == str[0])
+    {
+        visited[i - 1][j] = true;
+        if (check(arr, visited, str.substr(1), n, m, i - 1, j))
+        {
+            return true;
+        }
+        visited[i - 1][j] = false;
+    }
+
+    if ((i - 1 >= 0 && j + 1 < m) && !visited[i - 1][j + 1] && arr[i - 1][j + 1] == str[0])
+    {
+        visited[i - 1][j + 1] = true;
+        if (check(arr, visited, str.substr(1), n, m, i - 1, j + 1))
+        {
+            return true;
+        }
+        visited[i - 1][j + 1] = false;
+    }
+
+    if ((i >= 0 && j - 1 >= 0) && !visited[i][j - 1] && arr[i][j - 1] == str[0])
+    {
+        visited[i][j - 1] = true;
+        if (check(arr, visited, str.substr(1), n, m, i, j - 1))
+        {
+            return true;
+        }
+        visited[i][j - 1] = false;
+    }
+
+    if ((i >= 0 && j + 1 < m) && !visited[i][j + 1] && arr[i][j + 1] == str[0])
+    {
+        visited[i][j + 1] = true;
+        if (check(arr, visited, str.substr(1), n, m, i, j + 1))
+        {
+            return true;
+        }
+        visited[i][j + 1] = false;
+    }
+
+    if ((i + 1 < n && j - 1 >= 0) && !visited[i + 1][j - 1] && arr[i + 1][j - 1] == str[0])
+    {
+        visited[i + 1][j - 1] = true;
+        if (check(arr, visited, str.substr(1), n, m, i + 1, j - 1))
+        {
+            return true;
+        }
+        visited[i + 1][j - 1] = false;
+    }
+
+    if ((i + 1 < n && j >= 0) && !visited[i + 1][j] && arr[i + 1][j] == str[0])
+    {
+        visited[i + 1][j] = true;
+        if (check(arr, visited, str.substr(1), n, m, i + 1, j))
+        {
+            return true;
+        }
+        visited[i + 1][j] = false;
+    }
+
+    if ((i + 1 < n && j + 1 < m) && !visited[i + 1][j + 1] && arr[i + 1][j + 1] == str[0])
+    {
+        visited[i + 1][j + 1] = true;
+        if (check(arr, visited, str.substr(1), n, m, i + 1, j + 1))
+        {
+            return true;
+        }
+        visited[i + 1][j + 1] = false;
+    }
+
+    return false;
+}
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    char **arr = new char *[n];
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = new char[m];
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        string str;
+        cin >> str;
+        for (int j = 0; j < m; j++)
+        {
+            arr[i][j] = str[j];
+        }
+    }
+    cout << "enter string to search" << endl;
+    string s;
+    cin >> s;
+    bool **visited = new bool *[n];
+    for (int i = 0; i < n; i++)
+    {
+        visited[i] = new bool[m];
+        for (int j = 0; j < m; j++)
+        {
+            visited[i][j] = false;
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (arr[i][j] == 'C')
+            {
+                visited[i][j] = true;
+                if (check(arr, visited, s.substr(1), n, m, i, j))
+                {
+                    cout << "string found" << endl;
+                    return 0;
+                }
+                visited[i][j] = false;
+            }
+        }
+    }
+
+    cout << "no matching string found" << endl;
+
+    return 0;
+}
+
+*/
