@@ -29,7 +29,7 @@ double knapsack(Item *arr, int n, int w)
         else
         {
             int rem = w - curr_w;
-            val += ((double)rem / arr[i].weight) * arr[i].value;
+            val += ((double)rem / arr[i].weight) * arr[i].value;  // ( rem weight/current item weight ) * current value
             curr_w = w;
             break;
         }
