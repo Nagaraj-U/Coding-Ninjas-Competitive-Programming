@@ -23,7 +23,6 @@ Sample Input
 Sample Output
 250
 */
-
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -38,23 +37,25 @@ bool compare(Job j1,Job j2){
     return j1.finish < j2.finish;
 }
 
-int binarysearch(Job* arr,int index){
-    int low = 0;
-    int high = index-1;
-    while(low<=high){
-        int mid = (low+high)/2;
-        
-        if(arr[mid].finish <= arr[index].start){
-            if(arr[mid+1].finish <= arr[index].start){
-                low = mid+1;
-            }else{
-                return mid;
-            }
+//O(log n )
+
+int binarysearch(Job* arr,int index)
+{
+    int ans = -1;
+    int start = 0;
+    int end = index-1;
+    while(start <= end)
+    {
+        int mid = (start+end)/2;
+        if(arr[mid].finish <= arr[index].start)
+        {
+            ans = mid;
+            start = mid+1;
         }else{
-            high = mid-1;
+            end = mid-1;
         }
     }
-    return -1;
+    return ans;
 }
 
 
@@ -75,6 +76,7 @@ ll getprofit(Job* arr,int n){
     return dp[n-1];
 }
 
+//O(n^2)
 
 // ll getprofit(Job* arr,int n){
 //     ll* dp = new ll[n]();
