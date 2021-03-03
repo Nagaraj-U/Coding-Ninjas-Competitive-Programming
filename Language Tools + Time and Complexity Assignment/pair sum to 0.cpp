@@ -8,6 +8,7 @@ Input format :
 Line 1 : Integer N (Array size)
 Line 2 : Array elements (separated by space)
 Output format :
+
 Line 1 : Pair 1 elements (separated by space)
 Line 2 : Pair 2 elements (separated by space)
 Line 3 : and so on
