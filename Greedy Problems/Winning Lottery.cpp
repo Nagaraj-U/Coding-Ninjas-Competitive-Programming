@@ -57,3 +57,29 @@ int main() {
     }
     return 0;
 }
+
+/*
+void winLottery(int sum,int n){
+    int *arr=new int[n];
+    memset(arr,0,sizeof(arr));
+    arr[0]=1;
+    sum=sum-1;
+    for(int i=n-1;i>=1;i--){
+        if(sum>9){
+            arr[i]=9;
+            sum=sum-9;
+        }
+        else{
+            arr[i]=sum;
+            sum=0;
+        }
+        
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i];
+    }
+    
+    
+}
+
+*/
