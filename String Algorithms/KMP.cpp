@@ -47,6 +47,7 @@ void getLPS(string str,int* arr){
     }
 }
 
+
 int main(){
     string pattern,text;
     cout << "Enter Text" << endl;
