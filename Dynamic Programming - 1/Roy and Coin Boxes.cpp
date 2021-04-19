@@ -50,6 +50,8 @@ using namespace std;
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
     int n;
     cin >> n;
     int* box = new int[n+1](); //dp array
@@ -64,8 +66,13 @@ int main()
         end[r] += 1;
     }
     box[1] = (start[1] - end[1]);
+    /*
+    	for box 1 = (s1)
+        for box 2 = (s1 + s2 -e1) = s2 - e1 - box1
+        for box 3 = s1 + s2 + s3 - e1 - e2 = s3 - e2 - box2
+    */
     for(int i=2;i<=n;i++){
-        box[i] = box[i-1] + (start[i] - end[i-1]);
+        box[i] = box[i-1] + (start[i] - end[i-1]); //starting with that index and ending at prev inde
     }
     int* ans = new int[n+1]();
     for(int i=1;i<=n;i++){
@@ -75,6 +82,8 @@ int main()
     // for(int i=1;i<=n;i++){
     //     cout << box[i] << " " ;
     // }
+    
+    //suffix sum (atleast X)
     for(int i=n-1;i>0;i--){
         ans[i] = ans[i] + ans[i+1];
     }
@@ -94,4 +103,3 @@ int main()
     
     return 0;
 }
-
