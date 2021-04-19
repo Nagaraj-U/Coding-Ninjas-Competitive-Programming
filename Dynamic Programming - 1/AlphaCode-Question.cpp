@@ -30,6 +30,59 @@ Sample Output:
 1
 */
 
+/*
+ITERATIVE
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007
+int main()
+{
+    while(1)
+    {
+        string str;
+        cin >> str;
+        if(str == "0"){
+            break;
+        }
+        int* arr = new int[str.length()];
+        for(int i=0;i<str.length();i++){
+            arr[i] = str[i] - '0';
+        }
+        int* dp = new int[str.length()]();
+        dp[0] = 1;
+        // base case for dp[1]
+        if(arr[0]*10+arr[1] <= 26){
+            if(arr[1] == 0){
+                dp[1] = 1;
+            }else{
+                dp[1] = 2;
+            }
+        }else{
+            if(arr[1] == 0){
+                dp[1] = 0;
+            }else{
+                dp[1] = 1;
+            }      
+        }
+        for(int i=2;i<str.length();i++){
+            if(arr[i] != 0){
+                dp[i] = dp[i-1]%mod;
+            }
+            if(arr[i-1]*10 + arr[i] <= 26 && arr[i-1] != 0){
+                dp[i] = dp[i]%mod + dp[i-2]%mod;
+            }
+        }
+        cout << dp[str.length()-1]%mod << endl;  
+    }
+    
+    return 0;
+}
+
+
+*/
+
 
 
 
