@@ -1,4 +1,4 @@
-
+//Time complexity O(N)
 #include <stdio.h>
 #include<bits/stdc++.h>
 using namespace std;
