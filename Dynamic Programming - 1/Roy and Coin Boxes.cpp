@@ -42,3 +42,56 @@ Sample Output
 0
 4
 */
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    int* box = new int[n+1](); //dp array
+	int* start = new int[n+1]();
+    int* end = new int[n+1]();
+    int m;
+    cin >> m;
+    while(m--){
+        int l,r;
+        cin >> l >> r;
+        start[l] += 1;
+        end[r] += 1;
+    }
+    box[1] = (start[1] - end[1]);
+    for(int i=2;i<=n;i++){
+        box[i] = box[i-1] + (start[i] - end[i-1]);
+    }
+    int* ans = new int[n+1]();
+    for(int i=1;i<=n;i++){
+        ans[box[i]] += 1;
+    }
+    // cout << "box " << endl;
+    // for(int i=1;i<=n;i++){
+    //     cout << box[i] << " " ;
+    // }
+    for(int i=n-1;i>0;i--){
+        ans[i] = ans[i] + ans[i+1];
+    }
+    // cout << "ans" << endl;
+    // for(int i=1;i<=n;i++){
+    //     cout << ans[i] << " " ;
+    // }
+    int q;
+    cin >> q;
+    while(q--){
+        int temp;
+        cin >> temp;
+        cout << ans[temp] << endl;
+    }
+    
+    
+    
+    return 0;
+}
+
