@@ -34,6 +34,146 @@ NO
 YES
 */
 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+/*
+Intuition :
+get connected components among M pairs (M edges)
+
+we can change P -> Q  if values present at indexes in P and Q can be swapped if they are inside same connected component
+(connected component gives indexes) 
+
+make two sets SP and SQ (insert values of index got from componensts index in SP and SQ)
+
+check if two sets have same values then they can be swapped easily one another else cannot be swapped (hence anwer NO)
+make graph for M pairs
+
+
+*/
+
+
+//BFS
+vector<int> getComponent(int** edges,int m,bool* visited,int n,int start)
+{
+    vector<int> output;
+    queue<int> vertices;
+    vertices.push(start);
+    visited[start] = true;
+    while(!vertices.empty())
+    {
+        int current = vertices.front();
+        vertices.pop();
+        output.push_back(current);
+        for(int i=0;i<n;i++){
+            if(!visited[i] && i != current && edges[current][i] == 1){
+                visited[i] = true;
+                vertices.push(i);
+            }
+        }
+    }
+    return output;
+}
+
+
+int main()
+{
+	//code
+    int t;
+    cin >> t;
+    while(t--){
+        int n,m;
+        cin >> n >> m;
+        int* p = new int[n];
+        int* q = new int[n];
+        for(int i=0;i<n;i++){
+            cin >> p[i];
+        }
+        for(int i=0;i<n;i++){
+            cin >> q[i];
+        }
+        int** edges = new int*[n];
+        for(int i=0;i<n;i++){
+            edges[i] = new int[n];
+            for(int j=0;j<n;j++){
+                edges[i][j] = 0;
+            }
+        }
+        while(m--){
+            int start,end;
+            cin >> start >> end;
+            edges[start-1][end-1] = 1;
+            edges[end-1][start-1] = 1;
+        }
+        vector<vector<int> > components;
+        bool* visited  = new bool[n];
+        for(int i=0;i<n;i++){
+            visited[i] = false;
+        }
+        for(int i=0;i<n;i++){
+            if(!visited[i]){
+                vector<int> temp = getComponent(edges,m,visited,n,i);
+                components.push_back(temp);
+            }
+        }
+        bool flag = true;
+        for(int i=0;i<components.size();i++){
+            unordered_set<int> sp;
+            unordered_set<int> sq;
+            vector<int> curr = components[i];
+            for(int j=0;j<curr.size();j++){
+                sp.insert(p[curr[j]]);
+                sq.insert(q[curr[j]]);
+                // cout << curr[j] << " ";
+            }
+           
+            unordered_set<int>::iterator it = sp.begin();
+            while(it != sp.end()){
+                int search = *it;
+                if(sq.find(search) == sq.end()){
+                    // cout << "NO" << endl; 
+                    flag = false; //mismatch (ex : 1,3,6 and 1,3,7) we can never convert 136 to 137
+                    break;
+                }
+                it++;
+            }
+            if(flag == false){
+                break;
+            }
+        }
+        if(flag){
+            cout << "YES" << endl;
+        }else{
+            cout << "NO" << endl;
+        }
+    }
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -123,3 +263,4 @@ int main(){
         if(flag) cout << "YES" << endl;
     }
 }
+*/
