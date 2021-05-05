@@ -106,21 +106,23 @@ image : https://media.geeksforgeeks.org/wp-content/uploads/snake-and-ladders.jpg
 #include<bits/stdc++.h>
 using namespace std;
 
-struct node{
+struct node{ //each node conatin min dist to reach and vertex itself
 	int vertex;
 	int dist;
 };
 
+
+//every node is connected to next 6 vertices
 int getans(int* arr)
 {
 	bool* visited = new bool[101];
 	for(int i=0;i<101;i++){
 		visited[i] = false;
 	}
-	queue<node> q;
+	queue<node> q; //to apply BFS
 	node temp;
 	temp.vertex = 1;
-	temp.dist = 0;
+	temp.dist = 0; //dist to reach 1 vertx is 0
 	q.push(temp);
 	while(!q.empty()){
 		node curr = q.front();
@@ -133,7 +135,7 @@ int getans(int* arr)
 			if(!visited[i]){
 				node insertVertex;
         
-				if(arr[i] != -1){
+				if(arr[i] != -1){ //ladder or snake present move to respective position accordingly
 					insertVertex.vertex = arr[i];
 				}else{
 					insertVertex.vertex = i;
