@@ -85,6 +85,24 @@ The player first rolls 5 and climbs the ladder to square 80. Three rolls 6 of ge
 */
 
 
+
+/*
+APPROACH
+
+
+The idea is to consider the given snake and ladder board as a directed graph with number of vertices equal to the number of cells in the board. 
+The problem reduces to finding the shortest path in a graph. Every vertex of the graph has an edge to next six vertices if next 6 vertices do not have a snake or ladder.
+If any of the next six vertices has a snake or ladder, then the edge from current vertex goes to the top of the ladder or tail of the snake. Since all edges are of equal weight,
+we can efficiently find shortest path using Breadth First Search of the graph.
+
+Following is the implementation of the above idea. The input is represented by two things, first is ‘N’ which is number of cells in the given board, 
+second is an array ‘move[0…N-1]’ of size N. An entry move[i] is -1 if there is no snake and no ladder from i, otherwise move[i] contains index of destination cell for the 
+snake or the ladder at i.
+
+image : https://media.geeksforgeeks.org/wp-content/uploads/snake-and-ladders.jpg
+
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
