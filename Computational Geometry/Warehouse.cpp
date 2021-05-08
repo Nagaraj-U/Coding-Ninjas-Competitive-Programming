@@ -21,6 +21,8 @@ Returns: 79
 The best path is due east, but the first and second posts are only 80 feet apart so the truck must be less than 80 feet wide.
 */
 
+
+
 #include <iostream>
 #include <sstream>
 #include <string>
