@@ -29,52 +29,61 @@ Sample Output
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-struct Worker{
-    int t;
-    int x;
-    int y;
-    
+class worker{
+    public:
+    	int time;
+        int cost;
+    	int speed;
 };
 
-bool compare(Worker w1,Worker w2){
-    if(w1.t == w2.t){
-        if(w1.y == w2.y){
-            return w1.x<w2.x;
+bool compare(worker w1,worker w2)
+{
+    if(w1.time == w2.time){
+        if(w1.speed == w2.speed){
+            return w1.cost < w2.cost;
         }
-        return w1.y>w2.y;
+        return w1.speed > w2.speed;
     }
-    return w1.t<w2.t;
+    
+    return w1.time < w2.time;
 }
 
-ll mincost(Worker* arr,int n,ll d){
-    int cur_index = 0;
-	ll area_covered = 0;
-    ll cost = arr[0].x;
-    for(int i=1; i<n  ;i++){
-        area_covered += (arr[i].t - arr[i-1].t)*(arr[cur_index].y);
-        if(area_covered >= d){
-            return cost;
+int getans(worker* arr,ll d,int n)
+{
+    
+    int total_cost = arr[0].cost;
+    worker curr_work = arr[0];
+    ll total_area = curr_work.speed;
+    for(int i=1;i<n;i++){
+        if(total_area >= d){
+            break;
         }
-        if(arr[cur_index].y < arr[i].y){
-            cur_index = i;
-            cost += arr[cur_index].x;
+        if(curr_work.speed >= arr[i].speed){
+            total_area += curr_work.speed;
+        }else{
+            curr_work = arr[i];
+            total_area += curr_work.speed;
+            total_cost += curr_work.cost;
         }
     }
-    return cost;
+    return total_cost;
 }
 
 int main()
 {
+    //Write your code here
     int n;
     ll d;
     cin >> n >> d;
-    Worker* arr = new Worker[n];
+    worker* arr = new worker[n];
     for(int i=0;i<n;i++){
-        cin >> arr[i].t;
-        cin >> arr[i].x;
-        cin >> arr[i].y;
+        int t,x,y;
+        cin >> t >> x >> y;
+        arr[i].time = t;
+        arr[i].cost = x;
+        arr[i].speed = y;
     }
     sort(arr,arr+n,compare);
-    cout << mincost(arr,n,d);
+    cout << getans(arr,d,n);
     return 0;
 }
