@@ -1,11 +1,14 @@
 /*
-Professor Jain has a class full of notorious students. To get anything done from them is a herculean task. Prof Jain wanted to organize a test. He gave this responsibility to Aahad. Aahad did an excellent job of organizing the test. As a reward, the professor gave him an sequence of numbers to play with. But Aahad likes playing with "interesting" sequence of numbers, which are sequences that have equal elements.
+Professor Jain has a class full of notorious students. To get anything done from them is a herculean task. Prof Jain wanted to organize a test. He gave this responsibility 
+to Aahad. Aahad did an excellent job of organizing the test. As a reward, the professor gave him an sequence of numbers to play with.
+But Aahad likes playing with "interesting" sequence of numbers, which are sequences that have equal elements.
 Now, the problem is - Prof Jain has a sequence with elements, and that sequence isn't always "interesting”. To ensure sequence has equal elements, Prof Jain has 2 options:
 1) Choose two elements of sequence . DECREASE the first element by 1 and INCREASE the second element by 1. This operation costs 'k' coins.
 2) Choose one element of array and INCREASE it by 1. This operation costs 'l' coins.
 What’s the minimum number of coins Prof Jain needs to turn his sequence into a “interesting" sequence for Aahad?
 Input Format
-The first line of input contains three space-separated integers: n, k, l . Integer n is the size of array . Integer k is the number of coins needed to perform the first operation. Integer l is the number of coins needed to perform the second operation.
+The first line of input contains three space-separated integers: n, k, l . Integer n is the size of array . Integer k is the number of coins needed to 
+perform the first operation. Integer l is the number of coins needed to perform the second operation.
 
 The second line contains n integers: (a1, a2, a3... an) representing sequence.
 Constraints:
