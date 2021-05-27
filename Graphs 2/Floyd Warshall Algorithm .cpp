@@ -9,7 +9,7 @@ using namespace std;
 //if adding "k" reduces the shortest path update it 
 //relaxing every edge "k" times
 
-//Put some large values if no edge is present between two vertices in adjacency matrix
+//Put some large values if no edge is present between two vertices in adjacency matrix  (i , i ) put infinity
 
 void warshall(int** arr,int n)
 {
