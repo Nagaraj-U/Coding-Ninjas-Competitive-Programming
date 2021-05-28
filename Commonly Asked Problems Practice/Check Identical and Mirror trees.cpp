@@ -96,7 +96,7 @@ int main()
 
 	//for identical
 
-			7                           7     
+			7                          				 7     
 
 		2 		8					2 		8
 
@@ -108,7 +108,7 @@ int main()
 
 
 
-			7                           7     
+			7                         			        7     
 
 		2 		8					8 		2
 
