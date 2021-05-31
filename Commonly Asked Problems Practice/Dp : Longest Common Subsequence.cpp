@@ -43,6 +43,9 @@ text1 and text2 consist of only lowercase English characters.
 */
 
 
+//similar questions : pattern matching
+//pattern = aab , string = abdab check wether pattern present in string as subsequence , solution : LCS(p,s) = p  p:length of pattern
+
 class Solution {
 public:
     int longestCommonSubsequence(string text1, string text2) {
