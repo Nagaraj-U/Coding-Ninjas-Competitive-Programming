@@ -36,6 +36,8 @@ grid[i][j] is '0' or '1'.
 */
 
 
+// Solutiomn using DFS
+
 
 class Solution {
     
@@ -70,6 +72,59 @@ public:
                 if(grid[i][j] == '1' && !visited[i][j]){
                     dfs(grid,visited,i,j,m,n);
                     count += 1;
+                    
+                }
+            }
+        }
+        
+        return count;
+    }
+};
+
+
+
+// solution using BFS
+
+
+/*
+
+offsets = (0,1),(0,-1),(1,0),(1,-1),(1,1),(-1,0),(-1,1),(-1,-1)  if all 8 directions are allowed ,  but this question allows only 4 directions
+
+*/
+
+class Solution {
+    
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        bool** visited = new bool*[m];
+        for(int i=0;i<m;i++){
+            visited[i] = new bool[n];
+            for(int j=0;j<n;j++){
+                visited[i][j] = false;
+            }
+        }
+        int count = 0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j] == '1'){
+                    count++;
+                    queue<pair<int,int>> q;  // make pair of {i,j} explore its all neighbours
+                    q.push({i,j});
+                    int offsets[5][2] = {{0,1},{1,0},{-1,0},{0,-1}}; //directions : right , top , down , left
+                    while(!q.empty()){
+                        pair<int,int> p = q.front();
+                        q.pop();
+                        for(int k=0;k<4;k++){
+                            int first = p.first + offsets[k][0];
+                            int second = p.second +  offsets[k][1];
+                            if(first >= 0 && second>=0 && first<m && second<n && grid[first][second]=='1'){
+                                grid[first][second] = '0'; //makrking all beighbours 0 , hence they are not considered again
+                                q.push({first,second}); //push cell to queue , to explore its neighbours again
+                            }
+                        }
+                    }
                     
                 }
             }
