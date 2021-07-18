@@ -1,5 +1,9 @@
 //generate all permuataion of number
 
+
+//time complexity O(n^2 * n!)
+//for  n=3 , 3 choices for 1st position, 2 choices for 2nd position ,  1 choice for 3rd position (n^2)
+
 class Solution {
 public:
     
