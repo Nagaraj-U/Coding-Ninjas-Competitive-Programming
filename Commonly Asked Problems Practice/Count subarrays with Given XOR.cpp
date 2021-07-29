@@ -3,11 +3,13 @@
 
 Given an array of integers ‘ARR’ and an integer ‘X’, you are supposed to find the number of subarrays of ARR which have bitwise XOR of the elements equal to X.
 Note:
-An array ‘B’ is a subarray of an array ‘A’ if ‘B’ that can be obtained by deletion of, several elements(possibly none) from the start of ‘A’ and several elements(possibly none) from the end of ‘A’. 
+An array ‘B’ is a subarray of an array ‘A’ if ‘B’ that can be obtained by deletion of, several elements(possibly none) 
+from the start of ‘A’ and several elements(possibly none) from the end of ‘A’. 
 Input Format :
 The first line contains a single integer ‘T’ denoting the number of test cases. The test cases follow.
 
-The first line of each test case contains two integers ‘N’ and ‘X’ separated by a single space, denoting the number of elements in the array and the required subarray XOR respectively.
+The first line of each test case contains two integers ‘N’ and ‘X’ separated by a single space, denoting the number of elements in the array and 
+the required subarray XOR respectively.
 
 The second line of each test case contains ‘N’ single space-separated integers denoting the elements of the array.
 Output Format :
@@ -20,7 +22,8 @@ Constraints :
 0 <= X <= 10^9
 0 <= ARR[i] <= 10^9
 
-Where ‘T’ denotes the number of test cases, ‘N’ denotes the number of elements in the array, ‘X’ denotes the required subarray XOR and ARR[i] denotes the i-th element of the given array.
+Where ‘T’ denotes the number of test cases, ‘N’ denotes the number of elements in the array, ‘X’ denotes the required subarray XOR and 
+ARR[i] denotes the i-th element of the given array.
 
 Time Limit: 1 sec
 Sample Input 1 :
