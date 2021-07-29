@@ -51,39 +51,43 @@ Sample Output 2 :
 
 */
 
+/*
+intuition
 
+lets given array
 
+prefix_xor
+<------------>
+1 2    3 4 5 6
+<--->  <------>
+x       y
 
+prefix_xor = x ^ y
 
+i.e
+x = prefix_xor ^ y 
+y = prefix_xor ^ x
+*/
 
-//number of subarrays with xor value 'x' ending at index 'i'
-
-#include<unordered_map>
-int subarraysXor(vector<int> &arr, int x)
+int countsubarraysXor(vector<int> &arr, int k)
 {
-    int n = arr.size();
-    int* prefix_xor = new int[n];
-    prefix_xor[0] = arr[0];
-    for(int i=1;i<n;i++){
-        prefix_xor[i] = arr[i] ^ prefix_xor[i-1]; 
-    }
-    int ans = 0;
     unordered_map<int,int> m;
-
+    int n = arr.size();
+    int prefix_xor = 0;
+    int count = 0;
     for(int i=0;i<n;i++){
-        
-        //req_xor gives 
-        int req_xor = prefix_xor[i] ^ x;
-        ans += m[req_xor];
-        
-        if(prefix_xor[i] == x){
-            ans++;
+        prefix_xor ^= arr[i];
+        if(prefix_xor == k){
+            count++;
         }
-        
-        //storing count of current prefix xor
-        m[prefix_xor[i]]++;
+        int req_xor = prefix_xor ^ k;
+        if(m.find(req_xor) != m.end()){
+            count += m[req_xor];
+        }
+        m[prefix_xor]++;
     }
-    return ans;
+    return count;
+
 }
 
 /*
