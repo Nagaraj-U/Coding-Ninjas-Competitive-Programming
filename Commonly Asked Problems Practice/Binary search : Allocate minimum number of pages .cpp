@@ -80,7 +80,7 @@ class Solution
             }
         }
         
-        if(count > n){
+        if(count > n){//if count < n (then also we can make sure that each student gets atleast one book)
             return false;
         }
         
