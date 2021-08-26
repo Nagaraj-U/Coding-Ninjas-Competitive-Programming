@@ -11,6 +11,8 @@ using namespace std;
 
 //Put some large values if no edge is present between two vertices in adjacency matrix  (i , i ) put infinity
 
+
+//with k as intermediate vertex update the matrix
 void warshall(int** arr,int n)
 {
     for(int k=0;k<n;k++){
