@@ -51,6 +51,10 @@ the floor lies
 take min (max(1st break,1st survive) , max(2nd break , 2nd survive) , max(3rd break,3rd survive))
 */
 
+
+//for each floor find the max(break,survive) and finally take the minimum of overall floors
+//because we have calculated for each floor what is minimum moves required in worst case by taking max(break,survive) 
+
 class Solution {
 public:
     int superEggDrop(int k, int n) {
