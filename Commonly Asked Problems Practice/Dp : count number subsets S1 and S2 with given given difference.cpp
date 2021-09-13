@@ -1,5 +1,17 @@
 //count number subsets S1 and S2 with given given difference "d"
 //similar as number of subsets with given sum = sum - diff 
+
+/*
+approach
+
+s1 + s1 = sum;
+s1 - s2 = diff
+
+2*s1 = sum + diff
+s1 = (sum + diff)/2;
+
+find the count of subsets with the the sum s1
+*/
 #include<bits/stdc++.h>
 using namespace std;
 int main()
@@ -15,7 +27,7 @@ int main()
 		sum = sum + arr[i];
 	}
 
-	sum = sum - diff;
+	sum = (sum + diff)/2;
 
 	int** dp = new int*[n+1];
 	for(int i=0;i<=n;i++){
