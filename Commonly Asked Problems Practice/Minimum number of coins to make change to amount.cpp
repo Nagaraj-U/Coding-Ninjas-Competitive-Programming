@@ -36,36 +36,29 @@ Constraints:
 1 <= coins[i] <= 231 - 1
 0 <= amount <= 104
 */
-class Solution {
-public:
-    int coinChange(vector<int>& coins, int amount) {
-        int ans = 0;
-        sort(coins.begin(),coins.end());
-        int n = coins.size();
-        int** dp = new int*[n+1]();
-        for(int i=0;i<=n;i++){
-            dp[i] = new int[amount+1];
-            for(int j=0;j<=amount;j++){
-                dp[i][j] = -1;
-            }
-        }
-        
-        for(int i=0;i<=n;i++){
-            dp[i][0] = 0;
-        }
-        
-        for(int i=1;i<=n;i++){
-            for(int j=1;j<=amount;j++){
-                if(j >= coins[i-1]){
-                    if(dp[i][j-coins[i-1]] != -1)
-                    dp[i][j] = 1 + dp[i][j-coins[i-1]];
-                    else
-                    dp[i][j] = dp[i-1][j];
-                }else{
-                    dp[i][j] = dp[i-1][j];
-                }
-            }
-        }
-        return dp[n][amount];
-    }
+class Solution{
+
+	public:
+	int minCoins(int coins[], int M, int V) 
+	{ 
+	    // Your code goes here
+	    vector<vector<int>> dp(M+1,vector<int>(V+1,0));
+	    
+	    for(int i=1;i<=V;i++){//if no coins exist (make it as infinity)
+	        dp[0][i] = 10000;
+	    }
+	    
+	    for(int i=1;i<=M;i++){
+	        for(int j=1;j<=V;j++){
+	            if(j >= coins[i-1]){
+	                dp[i][j] = min(1 + dp[i][j-coins[i-1]] , dp[i-1][j]);
+	            }else{
+	                dp[i][j] = dp[i-1][j];
+	            }
+	        }
+	    }
+	    
+	    return dp[M][V] == 10000 ? -1 : dp[M][V];
+	} 
+	  
 };
