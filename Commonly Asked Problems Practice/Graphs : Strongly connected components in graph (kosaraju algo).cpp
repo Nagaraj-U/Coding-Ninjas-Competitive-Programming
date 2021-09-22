@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+//brute force : for each vertex as source , check we can reach all other vertices : time = O(v*v*v)
+//kosaraju also : O(V+E) 
 
 /*
 
