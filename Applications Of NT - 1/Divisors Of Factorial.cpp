@@ -1,4 +1,5 @@
 /*
+
 Divisors Of Factorial
 Send Feedback
 Given a number, find the total number of divisors of the factorial of the number.
