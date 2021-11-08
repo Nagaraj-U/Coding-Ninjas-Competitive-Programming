@@ -1,4 +1,6 @@
 /*
+NOTE : RETAIN ORIGINAL STRUTURE OF TREE ( DO NOT CREATE NEW TREE )
+
 step1 : use level order traversal to get all nodes in vector O(n)
 step 2 : sort vector  (n log n)
 step 3 : copy values from vector to original tree , using inorder traversal (since inorder of BST is always sorted)  O(n)
