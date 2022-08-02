@@ -19,7 +19,7 @@ Sample Output:
 */
 
 
-
+// TESTCASES WERE FAILING WITH SET AND MAP, SO I USED UNORDERED_SET AND FIXED A FEW BUGS IN THE CODE
 
 
 
@@ -27,8 +27,8 @@ Sample Output:
 // arr - input array
 // size - size of array
 #include<map>
-#include<set>
-int DuplicateNumber(int arr[], int size){
+#include<unordered_set>
+int findDuplicate(int arr[], int size){
     
     //USING MAP
     // map<int,int> m;
@@ -41,13 +41,14 @@ int DuplicateNumber(int arr[], int size){
     // }
     
     
-    // USING SET
-    set<int> s;
+    // USING UNORDERED_SET
+    unordered_set<int> s;
     for(int i=0;i<size;i++){
         if(s.find(arr[i]) != s.end()){
             return arr[i];
         }
+        else
         s.insert(arr[i]);
     }
-	
+	return -1;
 }
